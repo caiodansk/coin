@@ -10,7 +10,7 @@
 <div class="bg-main">
     <h1>Conversor de Moeda</h1>
     <p>Encontre atualizações sobre as taxas de câmbio</p>
-    <div class="converter">
+    <form class="converter"name="converte">
         <input type="number" id="amount" class="bg-Color" placeholder="Quantidade">
         <select id="fromCurrency" class="bg-Color">
             <option class="optionSetUp" value="USD">USD - Dólar Americano</option>
@@ -85,17 +85,19 @@
             <option value="MYR">MYR - Ringgit Malaio</option>
             <option value="RON">RON - Leu Romeno</option>
         </select>
-        <button onclick="convertCurrency()" class="text-Converter">Converter</button>
-    </div>
+        <input type="submit" class="text-Converter" value = 'Converter'>
+    </form>
     <p>Calcule e controle suas próprias finanças</p>
     <p>Nosso sistema converte todas as atuais moedas mais buscadas no mercado mundial</p>
+
+    <p class="caio">CAIO</p>
 </div>
-<script src="evans.js"></script>
+
 <div class="senac-container">
     <a href="https://www.pi.senac.br/" target="_blank">
         <img src="https://www.pi.senac.br/images/senac-logo-pi.png" alt="Senac PI Logo" class="senac-logo">
     </a>
 </div>
-
+<script src="script.js"></script>
 </body>
 </html>
