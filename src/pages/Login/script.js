@@ -14,4 +14,7 @@ document.getElementById("buttonPositionUp").addEventListener("click", function()
         separator.classList.remove("left")
     }, 1000);
 })
+// configurando posição do separator
+
+
 
