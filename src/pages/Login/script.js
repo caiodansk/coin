@@ -44,18 +44,34 @@ function cadastrar(emailUp, passwordUp, passwordConfirmUp) {
     salvarDb(user)
 }
 
+let users = []
 function salvarDb(user){
-    let users = []
 
-    if(localStorage.getItem("usuarios"))
-    {
+    if(localStorage.getItem("usuarios")){
         users = JSON.parse(localStorage.getItem("usuarios"))  
     } 
+
+    
+    // Verifica se o usuário já está cadastrado
+    let emailExists = users.some(existingUser => existingUser.email === user.email);
+    
+    if (emailExists) {
+        alert("JA CADASTRADO");
+        return; // Não continua com a adição do usuário
+    }
+    
     users.push(user)
     localStorage.setItem("usuarios", JSON.stringify(users))
-    
-
 }
+
+document.getElementById("signIn").addEventListener("click", function logar() {
+    var inputEmail = document.getElementById("email")
+    var inputPassword = document.getElementById("password") 
+})
+ 
+
+
+
 
 
 
