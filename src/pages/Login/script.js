@@ -11,10 +11,6 @@ let labelName = document.querySelector("#labelName")
 let labelPassword = document.querySelector("#labelPassword")
 let labelConfirmPassword = document.querySelector("#labelConfirmPassword")
 
-// array para auxiliar db
-// let users = []
-
-
 // configurando posição do separator
 document.getElementById("buttonPosition").addEventListener("click", function(){
     let separator = document.querySelector(".separator")
@@ -185,12 +181,13 @@ document.getElementById("signIn").addEventListener("click", function logar() {
     // se o email e senha fornecidas forem compativeis
     if(emailInput == userValid.email && passwordInput == userValid.password && valid == true) {
         let msgLogin = document.querySelector("#msgLogin")
-        msgLogin.innerHTML = "Login bem sucedido, aguarde..."
+        document.getElementById("loading").style.display = 'block'
+        msgLogin.innerHTML = `Seja bem vindo ${userValid.name.toUpperCase()}! Por favor, aguarde...`
         msgLogin.style.color = "green"
         msgLogin.style.fontWeight = '600'
         setTimeout(() => {
             window.location.href = "../Home/index.html" // transportar usuario para a home do site
-        }, 1500);
+        }, 4000);
     } else if (valid == true){ // se não forem compativeis
         let msgLogin = document.querySelector("#msgLogin")
         msgLogin.innerHTML = "Email e Senha incorretos ou inexistentes!"

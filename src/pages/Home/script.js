@@ -1,5 +1,4 @@
 
-
 document.converte.addEventListener("submit",async (event)=>{
     event.preventDefault(); // não faça ação padrão
     
@@ -20,7 +19,7 @@ document.converte.addEventListener("submit",async (event)=>{
             let taxa = dados.conversion_rates[destino];
             let valorConvertido = input * taxa;
             let resultado = document.querySelector(".conversionResult")
-            resultado.innerHTML=`O valor convertido de ${input} ${origin} para ${destino} é ${valorConvertido}`;
+            resultado.innerHTML=`O valor convertido de ${input} ${origin} para ${destino} é ${valorConvertido.toFixed(2)}`;
        }else{
         console.error('A resposta da API não indica sucesso:', dados);
     }
