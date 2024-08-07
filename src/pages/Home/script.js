@@ -1,6 +1,6 @@
 
 document.converte.addEventListener("submit",async (event)=>{
-    event.preventDefault(); // não faça ação padrão
+    event.preventDefault();
     
     let origin = document.querySelector("#fromCurrency").options[document.querySelector("#fromCurrency").selectedIndex].value;
     let destino = document.querySelector("#toCurrency").options[document.querySelector("#toCurrency").selectedIndex].value;

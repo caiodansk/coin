@@ -1,29 +1,28 @@
-html, body {
-    height: 100%;
-    margin: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    min-height: 100%; 
     display: flex;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(135deg, #4b9cd3, #f1a364);
     color: #333;
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    background: linear-gradient(135deg, #4b9cd3, #f1a364);
+    height: 100vh;
+    overflow: hidden; /* Adicionado para evitar o overflow da página */
 }
 
 .bg-main {
     background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 15px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 600px;
     text-align: center;
-    margin: 20px 0;
-
+    margin: 10px 0;
+    height: 92vh;
+    overflow-y: auto; /* Adicionado para permitir a rolagem */
 }
 
 h1 {
@@ -38,7 +37,7 @@ p {
     margin-bottom: 20px;
     color: #0a2a64;
     background: rgba(255, 255, 255, 0.5);
-    padding: 10px;
+    padding: 1%;
     border-radius: 8px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     text-shadow: 1px 1px 2px #ffffff;
@@ -47,7 +46,7 @@ p {
 .converter {
     background-color: rgba(255, 255, 255, 0.9);
     color: #0a2a64;
-    padding: 30px;
+    padding: 2%;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -127,6 +126,7 @@ p {
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.5);
     transition: transform 0.3s ease;
+    z-index: 100; 
 }
 
 .senac-container:hover {
@@ -137,4 +137,58 @@ p {
     width: 100px;
     height: auto;
     display: block;
+}
+
+@media (max-width: 768px) {
+    .converter {
+        padding: 20px;
+        width: 90%;
+    }
+
+    .senac-container {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+
+
+@media (max-width: 930px) {
+    .converter {
+        padding: 15px;
+    }
+
+    .senac-container {
+        bottom: 5px;
+        right: 5px;
+        padding: 5px;
+        display: none; 
+    }
+
+    .senac-logo {
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    .converter button {
+        font-size: 14px;
+        padding: 12px;
+    }
 }
