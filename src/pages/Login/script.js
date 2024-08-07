@@ -65,10 +65,22 @@ function salvarDb(user){
 }
 
 document.getElementById("signIn").addEventListener("click", function logar() {
-    var inputEmail = document.getElementById("email")
-    var inputPassword = document.getElementById("password") 
-})
- 
+    let emailInput = document.getElementById("email").value;
+    let passwordInput = document.getElementById("password").value;
+
+    let users = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    let userExists = users.some(existingUser => existingUser.email === emailInput && existingUser.password === passwordInput);
+
+    var container = document.querySelector(".container")
+
+    if (userExists) {
+        container.style.backgroundColor = 'green';
+    } else {
+        container.style.backgroundColor = 'red';
+    }
+});
+
 
 
 
