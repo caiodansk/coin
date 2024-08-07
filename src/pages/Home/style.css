@@ -139,6 +139,10 @@ p {
     display: block;
 }
 
+.conversionResult {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .converter {
         padding: 20px;
