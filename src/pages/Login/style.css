@@ -24,7 +24,7 @@
     border-radius: 15px;
     width: 70%;
     height: 70%;
-    padding: 10px;
+    padding: 40px;
     background: rgba(255, 255, 255, 0.623);
     backdrop-filter: blur(20px);
 }
@@ -55,6 +55,10 @@
     width: 50%;
 }
 
+.signUp input, .signUp h1, .signUp h2, .signUp button {
+    margin: 10px auto;
+}
+
 /* signUp fim */
 
 input {
@@ -68,6 +72,14 @@ input {
 input::placeholder {
     font-family: monospace;
     font-weight: 600;
+}
+
+label{
+    font-weight: 600;
+    width: 60%;
+    cursor: pointer;
+    color: #0d2f46;
+    text-shadow: 0px 0px 7px #00000038;
 }
 
 p {
@@ -87,6 +99,11 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: #315166;
+    transition-duration: 0.2s;
+}
+
 h1 {
     font-size: x-large;
     margin: 12px 0;
@@ -96,6 +113,15 @@ h2 {
     text-align: center;
     font-size: large;
     margin: 20px 0;
+}
+
+#msgLogin {
+    margin: 0px;
+}
+
+#msgCadastro {
+    margin-top: 0;
+    margin-bottom: 25px;
 }
 
 /* animation typing inicio */
@@ -140,7 +166,7 @@ h2 {
     right: 0;
     background: #134363;
     border-radius: 0px 15px 15px 0px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
