@@ -7,7 +7,7 @@ const nameSignUp = document.querySelector("#name")
 
 
 let labelName = document.querySelector("#labelName")
-// let labelEmail = document.querySelector("#labelEmail")
+let labelEmail = document.querySelector("#labelEmail")
 let labelPassword = document.querySelector("#labelPassword")
 let labelConfirmPassword = document.querySelector("#labelConfirmPassword")
 
@@ -29,16 +29,34 @@ document.getElementById("buttonPositionUp").addEventListener("click", function()
 })
 // configurando posição do separator
 
+let validateEmail = false
+let validateName = false
+let validatePassword = false
+let validateConfirm = false
+
+emailSignUp.addEventListener("keyup", () =>{
+    if (!emailSignUp.value) {
+        labelEmail.innerHTML = '*Insira um email existente'
+        labelEmail.style.color = 'red'
+        validateEmail = false
+    } else {
+        labelEmail.innerHTML = 'Email:'
+        labelEmail.style.color = 'green'
+        validateEmail = true
+    }
+})
+
 
 // se a senha tiver menos de 8 caracteres
 nameSignUp.addEventListener("keyup", () =>{
     if (nameSignUp.value.length < 4) {
         labelName.innerHTML = '*Insira seu nome completo ou um nome maior'
         labelName.style.color = 'red'
-        return;
+        validateName = false
     } else {
         labelName.innerHTML = 'Nome Completo:'
         labelName.style.color = 'green'
+        validateName = true
     }
 })
 
@@ -47,10 +65,11 @@ passwordSignUp.addEventListener("keyup", () =>{
     if (passwordSignUp.value.length < 8) {
         labelPassword.innerHTML = '*Sua senha precisa ter 8 ou mais caracteres'
         labelPassword.style.color = 'red'
-        return;
+        validatePassword = false
     } else {
         labelPassword.innerHTML = 'Senha:'
         labelPassword.style.color = 'green'
+        validatePassword = true
     }
 })
 
@@ -59,10 +78,11 @@ passwordConfirmSignUp.addEventListener("keyup", () =>{
     if (passwordConfirmSignUp.value != passwordSignUp.value) {
         labelConfirmPassword.innerHTML = '*As senha inseridas se diferem'
         labelConfirmPassword.style.color = 'red'
-        return;
+        validateConfirm = false
     } else {
         labelConfirmPassword.innerHTML = 'Confirme sua senha:'
         labelConfirmPassword.style.color = 'green'
+        validateConfirm = true
     }
 })
 
@@ -73,7 +93,7 @@ function cadastrar(emailUp, passwordUp, passwordConfirmUp) {
     passwordUp = passwordSignUp.value
     passwordConfirmUp = passwordConfirmSignUp.value
 
-    if (!emailUp || !passwordUp || !nameSignUp.value || !passwordConfirmUp) {
+    if (!emailUp || !passwordUp || !nameSignUp.value || !passwordConfirmUp || validateConfirm === false || validatePassword === false || validateEmail === false || validateName === false) {
         let msg = document.querySelector("#msgCadastro")
         msg.innerHTML = "Por favor, preencha todos os campos corretamente"
         msg.style.color = "red"
@@ -135,12 +155,22 @@ function salvarDb(user){
             msg.innerHTML = "e aproveite nossos serviços gratuitamente"
             msg.style.color = "black"
             msg.style.fontWeight = '600'
+
+            // label voltar aos estilos
+            labelName.style.color = "black"
+            labelConfirmPassword.style.color = "black"
+            labelPassword.style.color = "black"
+            labelEmail.style.color = "black"
         }, 4500);
 
+
+        // limpar inputs
         emailSignUp.value = ''
         passwordSignUp.value = ''
         passwordConfirmSignUp.value = ''
         nameSignUp.value = ''
+
+        
     }
     
     users.push(user)
@@ -186,7 +216,7 @@ document.getElementById("signIn").addEventListener("click", function logar() {
         msgLogin.style.color = "green"
         msgLogin.style.fontWeight = '600'
         setTimeout(() => {
-            window.location.href = "../Home/index.html" // transportar usuario para a home do site
+            window.location.href = "../Home/home.html" // transportar usuario para a home do site
         }, 4000);
     } else if (valid == true){ // se não forem compativeis
         let msgLogin = document.querySelector("#msgLogin")

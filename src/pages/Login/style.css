@@ -24,7 +24,7 @@
     border-radius: 15px;
     width: 70%;
     height: 70%;
-    padding: 40px;
+    padding: 40px 20px;
     background: rgba(255, 255, 255, 0.623);
     backdrop-filter: blur(20px);
 }
@@ -39,11 +39,12 @@
     align-items: center;
     height: 100%;
     width: 50%;
+    margin-right: 10px;
 }
 
 
 .signUp {
-    
+    margin-left: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,7 +61,7 @@
 
 input {
     width: 60%;
-    padding: 8px;
+    padding: 12px;
     margin: 15px;
     border-radius: 8px;
     border: 2px solid #134363;
@@ -97,7 +98,7 @@ button {
 }
 
 button:hover {
-    background-color: #315166;
+    background-color: #3980afb7;
     transition-duration: 0.2s;
 }
 
@@ -207,3 +208,9 @@ h2 {
     border-top: 3px solid rgb(51, 0, 255);
     animation: rotate 1s linear infinite;
 }
+
+input:focus{
+    border: 2px solid #4296ce;
+    outline: none;
+}
+
